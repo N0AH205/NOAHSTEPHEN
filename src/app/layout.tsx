@@ -1,35 +1,30 @@
 import type { Metadata } from "next";
-import { Outfit, Inter, Cormorant_Garamond, JetBrains_Mono, Pixelify_Sans } from "next/font/google";
+import { JetBrains_Mono, Pixelify_Sans, Press_Start_2P, VT323 } from "next/font/google";
 import "./globals.css";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--f-mono",
   display: "swap",
 });
 
 const pixelify = Pixelify_Sans({
   subsets: ["latin"],
-  variable: "--font-pixel",
+  variable: "--f-pixel",
+  display: "swap",
+});
+
+const pressStart = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--f-arcade",
+  display: "swap",
+});
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--f-terminal",
   display: "swap",
 });
 
@@ -46,9 +41,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${cormorant.variable} ${jetbrains.variable} ${pixelify.variable} antialiased`}
+      className={`${jetbrains.variable} ${pixelify.variable} ${pressStart.variable} ${vt323.variable} antialiased`}
     >
-      <body className="font-sans">
+      <body className="font-terminal">
         {children}
       </body>
     </html>

@@ -7,9 +7,7 @@
   --accent-red: #FF4D4D;
   --accent-blue: #0066FF;
   --accent-teal: #00FFCC;
-  --font-sans: var(--font-outfit), var(--font-inter), sans-serif;
-  --font-pixel: var(--font-pixel), "Courier New", Courier, monospace;
-  --font-mono: var(--font-mono), monospace;
+  --accent-green: #00FF99;
 }
 
 @theme inline {
@@ -19,8 +17,11 @@
   --color-red-retro: var(--accent-red);
   --color-blue-retro: var(--accent-blue);
   --color-teal-retro: var(--accent-teal);
-  --font-pixel: var(--font-pixel);
-  --font-mono: var(--font-mono);
+  
+  --font-pixel: var(--f-pixel), "Courier New", Courier, monospace;
+  --font-arcade: var(--f-arcade), cursive;
+  --font-terminal: var(--f-terminal), monospace;
+  --font-mono: var(--f-mono), monospace;
 }
 
 * {
@@ -87,22 +88,58 @@ body {
 }
 
 .pixel-border {
-  border: 4px solid #000;
-  box-shadow: 8px 8px 0px #000;
+  border: 1px solid #000;
+  transition: all 0.2s ease;
 }
 
 .pixel-border:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0px #000;
+  background: #f8f8f8;
+}
+
+.card-red {
+  background: var(--accent-red);
+  color: white;
+  border-color: transparent;
+}
+
+.card-red:hover {
+  background: #ff3333;
+}
+
+.card-green {
+  background: var(--accent-green);
+  color: white;
+  border-color: transparent;
+}
+
+.card-green:hover {
+  background: #21ffb9;
+}
+
+.card-blue {
+  background: var(--accent-blue);
+  color: white;
+  border-color: transparent;
+}
+
+.card-blue:hover {
+  background: #005ce6;
+}
+
+.card-white {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000;
 }
 
 .teal-underline {
-  height: 12px;
+  height: 35%;
   background: var(--accent-teal);
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 10%;
+  left: -2%;
+  right: -2%;
   z-index: -1;
-  border-radius: 6px;
+  border-radius: 9999px;
+  border: none;
 }
