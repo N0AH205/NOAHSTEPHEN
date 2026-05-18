@@ -44,9 +44,9 @@ function GridSystem({ active }: { active: boolean }) {
       {/* Floating Nodes */}
       {Array.from({ length: 50 }).map((_, i) => (
         <mesh key={`node-${i}`} position={[
-          (Math.random() - 0.5) * 40,
-          (Math.random() - 0.5) * 10,
-          (Math.random() - 0.5) * 40
+          ((i * 137.5) % 40) - 20,
+          ((i * 221.7) % 10) - 5,
+          ((i * 543.1) % 40) - 20
         ]}>
           <boxGeometry args={[0.05, 0.05, 0.05]} />
           <meshBasicMaterial color="#000000" transparent opacity={0.2} />

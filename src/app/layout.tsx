@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Pixelify_Sans, Press_Start_2P, VT323 } from "next/font/google";
+import { Inter, JetBrains_Mono, Pixelify_Sans, Press_Start_2P } from "next/font/google";
 import "./globals.css";
+import PixelTrail from "@/components/PixelTrail";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--f-sans",
+  display: "swap",
+});
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -21,13 +28,6 @@ const pressStart = Press_Start_2P({
   display: "swap",
 });
 
-const vt323 = VT323({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--f-terminal",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "Noah Stephen | Portfolio",
   description: "A retro-engineered digital archive by Noah Stephen.",
@@ -41,10 +41,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jetbrains.variable} ${pixelify.variable} ${pressStart.variable} ${vt323.variable} antialiased`}
+      className={`${inter.variable} ${jetbrains.variable} ${pixelify.variable} ${pressStart.variable} antialiased`}
     >
-      <body className="font-terminal">
+      <body className="font-sans relative">
         {children}
+        <PixelTrail color="#000000" />
       </body>
     </html>
   );
