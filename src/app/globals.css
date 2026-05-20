@@ -1,26 +1,115 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --bg-primary: #ECE8EF;
+  --bg-secondary: #E7F0FF;
+  --bg-tertiary: #E3EBFF;
+  
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  
+  --accent-blue: #4392F1;
+  --accent-coral: #DC493A;
+
+  /* Typography */
+  --font-body: 'Neue Montreal', 'Inter', sans-serif;
+  --font-accent: 'EB Garamond', serif;
+
+  /* Spacing Rhythm */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2.5rem;
+  --space-lg: 5rem;
+  --space-xl: 10rem;
+  --space-xxl: 15rem;
+
+  /* Controlled Responsiveness */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snappy: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 0.8s var(--ease-smooth);
+  --transition-fast: 0.4s var(--ease-snappy);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--accent-blue);
+  color: #fff;
+}
+
+/* Typography Utilities */
+.text-body {
+  font-family: var(--font-body);
+  /* Fluid typography scaling */
+  font-size: clamp(1rem, 1.5vw, 1.125rem); 
+  font-weight: 400;
+}
+
+.text-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3vw;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-coral);
+}
+
+/* Architectural Buttons */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(17, 17, 17, 0.15); /* More subtle architectural border */
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cta-button:hover {
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg-primary);
 }
